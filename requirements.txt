@@ -1,5 +1,5 @@
 Flask
-final_nlp_model
 Flask-CORS
 numpy
 pandas
+yake
