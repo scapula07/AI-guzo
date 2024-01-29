@@ -15,7 +15,9 @@ def keywords(input_text):
     else:
         keywords = yake_extractor.extract_keywords(input_text)
 
-        keywords_df = pd.DataFrame(keywords, columns=['term', 'score'])
-        keywords_df = keywords_df.sort_values(by='score') # The lower the score the more relevant the keyword is
-        result = keywords_df[0][0:5]
+        # keywords_df = pd.DataFrame(keywords, columns=['term', 'score'])
+        # keywords_df = keywords_df.sort_values(by='score') # The lower the score the more relevant the keyword is
+        # result = keywords_df[0][0:5]
+
+        result = keywords
     return result
