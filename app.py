@@ -4,7 +4,8 @@ from flask import Flask, request, jsonify
 # from firebase_admin import credentials
 # from firebase_admin import db
 # from Guzo_NLP import final_nlp_model
-# from flask import Flask, request, jsonify
+import os
+
 import final_nlp_model
 from flask_cors import CORS
 
@@ -12,12 +13,9 @@ app = Flask(__name__)
 CORS(app, origins="*")
 
 
-#   initialize app with service account key
-# cred = credentials.Certificate('path/to/serviceAccountKey.json') # Bart
-# firebase_admin.initialize_app(cred, {'databaseURL': 'https://my-project.firebaseio.com'}) # Bart
-# ref = db.reference()
+
 print("Starting")
-#   Listen for a Create JSON object from frontend of application 
+
 @app.route('/ai', methods=['POST']) # Bart
 def intake_process_text():
     #   retrieve text input from frontend and feeds it to NLP model
@@ -43,4 +41,6 @@ def intake_process_text():
 keywords = [] # empty keywords list for next input
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    # Use the PORT environment variable or default to 8080
+    port = int(os.getenv("PORT", 8080))
+    app.run(port=port)
