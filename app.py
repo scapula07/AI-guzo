@@ -18,7 +18,7 @@ CORS(app, origins="*")
 # ref = db.reference()
 print("Starting")
 #   Listen for a Create JSON object from frontend of application 
-@app.route('/', methods=['POST']) # Bart
+@app.route('/ai', methods=['POST']) # Bart
 def intake_process_text():
     #   retrieve text input from frontend and feeds it to NLP model
     input_text = request.json['text'] #this is the parameter that refers to 'text' property in the JSON data 
